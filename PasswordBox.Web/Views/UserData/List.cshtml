@@ -1,0 +1,46 @@
+﻿@model List<PasswordBox.Web.Models.Data.DataRecord>
+@{
+}
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Kayıtlar</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+					<th>Site Adı</th>
+					<th>Kullanıcı Adı</th>
+					<th>Şifre</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+						<td>@record.Id</td>
+						<td>@record.WebsiteName</td>
+						<td>@record.UserName</td>
+						<td>@record.Password</td>
+                        <td>
+                            <a asp-area="" asp-controller="UserData"
+                            asp-action="Edit"
+                            asp-route-id="@record.Id">Düzenle</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Kayıt bulunamadı!</p>
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿@model PasswordBox.Web.Models.ViewModels.EditDataRequest
+@{
+}
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Kayıtları Düzenle</h1>
+    </div>
+
+</div>
+
+
+<div class="container py-5">
+
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Id</label>
+            <input type="text" id="id" class="form-control" asp-for="Id" readonly/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Site Adı</label>
+            <input type="text" id="websiteName" class="form-control" asp-for="WebsiteName" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Kullanıcı Adı</label>
+            <input type="text" id="username" class="form-control" asp-for="UserName"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Şifre</label>
+            <input type="text" id="password" class="form-control" asp-for="Password"/>
+        </div>
+
+        <div class="mb-3">
+
+            <div class="d-flex">
+                <button type="submit" class="btn btn-dark">Düzenle</button>
+
+                <button class="btn btn-danger ms-2" type="submit"
+                asp-area=""
+                asp-controller="UserData"
+                asp-action="Delete"
+                >Sil
+            </button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
