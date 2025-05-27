@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PasswordBox.Web.Data;
 
@@ -11,9 +12,11 @@ using PasswordBox.Web.Data;
 namespace PasswordBox.Web.Migrations
 {
     [DbContext(typeof(PasswordDbContext))]
-    partial class PasswordDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250527172730_AddUserIdToDataRecord")]
+    partial class AddUserIdToDataRecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

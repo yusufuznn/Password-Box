@@ -2,6 +2,9 @@
 using PasswordBox.Web.Data;
 using PasswordBox.Web.Models.Data;
 using PasswordBox.Web.Models.ViewModels;
+using System;
+using System.Linq;
+using System.Security.Claims;  
 
 namespace PasswordBox.Web.Controllers
 {
@@ -20,40 +23,59 @@ namespace PasswordBox.Web.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ActionName("Add")]
         public IActionResult Add(AddDataRequest addDataRequest)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                
+                return RedirectToAction("Login", "Account");
+            }
 
             var dataRecord = new DataRecord
             {
                 WebsiteName = addDataRequest.WebsiteName,
                 UserName = addDataRequest.UserName,
-                Password = addDataRequest.Password
+                Password = addDataRequest.Password,
+                UserId = userId   
             };
+
             passwordDbContext.Records.Add(dataRecord);
             passwordDbContext.SaveChanges();
 
             return RedirectToAction("List");
         }
 
-
         [HttpGet]
         [ActionName("List")]
         public IActionResult List()
         {
-            var dataRecords = passwordDbContext.Records.ToList();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var dataRecords = passwordDbContext.Records
+                .Where(r => r.UserId == userId)
+                .ToList();
+
             return View(dataRecords);
         }
-
 
         [HttpGet]
         public IActionResult Edit(Guid id)
         {
-            //var record = passwordDbContext.Records.Find(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-            var record = passwordDbContext.Records.FirstOrDefault(x => x.Id == id);
+            var record = passwordDbContext.Records
+                .FirstOrDefault(x => x.Id == id && x.UserId == userId);
 
             if (record != null)
             {
@@ -65,17 +87,21 @@ namespace PasswordBox.Web.Controllers
                     Password = record.Password
                 };
                 return View(editDataRequest);
-
             }
-            return (null);
-
+            return NotFound();
         }
-
 
         [HttpPost]
         public IActionResult Edit(EditDataRequest editDataRequest)
         {
-            var record = passwordDbContext.Records.FirstOrDefault(x => x.Id == editDataRequest.Id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var record = passwordDbContext.Records
+                .FirstOrDefault(x => x.Id == editDataRequest.Id && x.UserId == userId);
 
             if (record != null)
             {
@@ -87,17 +113,21 @@ namespace PasswordBox.Web.Controllers
             }
 
             return RedirectToAction("Edit", new { id = editDataRequest.Id });
-
-
         }
-
 
         [HttpPost]
         public IActionResult Delete(EditDataRequest editDataRequest)
         {
-            var record = passwordDbContext.Records.Find(editDataRequest.Id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-            if(record != null)
+            var record = passwordDbContext.Records
+                .FirstOrDefault(x => x.Id == editDataRequest.Id && x.UserId == userId);
+
+            if (record != null)
             {
                 passwordDbContext.Records.Remove(record);
                 passwordDbContext.SaveChanges();
@@ -105,21 +135,6 @@ namespace PasswordBox.Web.Controllers
                 return RedirectToAction("List");
             }
             return RedirectToAction("Edit", new { id = editDataRequest.Id });
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
