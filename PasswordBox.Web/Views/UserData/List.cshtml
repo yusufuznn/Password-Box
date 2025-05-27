@@ -2,6 +2,44 @@
 @{
 }
 
+<style>
+    .table thead th {
+        font-weight: 700;
+        color: #212529;
+        background-color: #f8f9fa;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+        cursor: pointer;
+    }
+
+    .btn-edit {
+        font-size: 0.9rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        color: white;
+        background-color: #0d6efd;
+        border: none;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-edit:hover {
+            background-color: #0b5ed7;
+            text-decoration: none;
+            color: white;
+        }
+
+    .no-records {
+        font-size: 1.25rem;
+        color: #6c757d;
+        text-align: center;
+        padding: 2rem 0;
+    }
+</style>
+
 <div class="bg-secondary bg-opacity-10 py-2">
     <div class="container">
         <h1>Kayıtlar</h1>
@@ -11,36 +49,38 @@
 <div class="container py-5">
     @if (Model != null && Model.Any())
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-					<th>Site Adı</th>
-					<th>Kullanıcı Adı</th>
-					<th>Şifre</th>
-                    <th> </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var record in Model)
-                {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
                     <tr>
-						<td>@record.Id</td>
-						<td>@record.WebsiteName</td>
-						<td>@record.UserName</td>
-						<td>@record.Password</td>
-                        <td>
-                            <a asp-area="" asp-controller="UserData"
-                            asp-action="Edit"
-                            asp-route-id="@record.Id">Düzenle</a>
-                        </td>
+                        <th>Id</th>
+                        <th>Site Adı</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Şifre</th>
+                        <th>İşlemler</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var record in Model)
+                    {
+                        <tr>
+                            <td>@record.Id</td>
+                            <td>@record.WebsiteName</td>
+                            <td>@record.UserName</td>
+                            <td>@record.Password</td>
+                            <td>
+                                <a class="btn-edit" asp-area="" asp-controller="UserData"
+                                   asp-action="Edit"
+                                   asp-route-id="@record.Id">Düzenle</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
     else
     {
-        <p>Kayıt bulunamadı!</p>
+        <p class="no-records">Kayıt bulunamadı!</p>
     }
 </div>

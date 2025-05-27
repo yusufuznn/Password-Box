@@ -42,7 +42,7 @@ namespace PasswordBox.Web.Controllers
 
                 if (roleIdenityResult.Succeeded)
                 {
-                    return RedirectToAction("Register");
+                    return RedirectToAction("Index","Home");
 
                 }
 
