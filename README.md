@@ -86,16 +86,10 @@ Contributions are welcome! Please open an issue first to discuss what you would 
 
 ---
 
-## License
-
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
-
----
-
 ## Contact
 
 For questions or feedback:
 
-* Email: [example@email.com](yusfuzn@hotmail.com)
+* Email: yusfuzn@hotmail.com
 
 ---
