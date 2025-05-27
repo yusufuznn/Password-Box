@@ -1,5 +1,3 @@
-Of course! Here's the translated English version of your README:
-
 ---
 
 # PasswordBox
@@ -28,6 +26,18 @@ Of course! Here's the translated English version of your README:
 * jQuery (for password toggle functionality)
 
 ---
+![1](https://github.com/user-attachments/assets/d6812b85-c64e-434b-a4c9-c47709464fad)
+![2](https://github.com/user-attachments/assets/798f70f9-b635-43cc-8e2d-db9a9b74b614)
+![3](https://github.com/user-attachments/assets/a50bc0c5-8912-4e65-bbee-062898fa6c93)
+![4](https://github.com/user-attachments/assets/5fb9fe56-f2e2-4bfe-9677-e3713c6d7114)
+
+---
+![5](https://github.com/user-attachments/assets/9621a689-b3d5-46c9-8580-fd685de4b560)
+![6](https://github.com/user-attachments/assets/4ebb263a-1ac4-4876-99d8-4e67fb02fa9d)
+![7](https://github.com/user-attachments/assets/f9c0dee6-cbb3-4ccb-adb0-f528399c23fc)
+* Records for another user
+![8](https://github.com/user-attachments/assets/2f215a41-88b6-411e-bd1f-777e2d42e436)
+
 
 ## Installation
 
