@@ -20,7 +20,7 @@ Of course! Here's the translated English version of your README:
 
 ## Technologies Used
 
-* ASP.NET Core MVC (.NET 6 or 7)
+* ASP.NET Core MVC (.NET 8)
 * Entity Framework Core
 * ASP.NET Core Identity
 * Bootstrap 5
