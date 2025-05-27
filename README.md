@@ -3,6 +3,7 @@ Of course! Here's the translated English version of your README:
 ---
 
 # PasswordBox
+![WhatsApp Image 2025-05-27 at 23 40 04_d5077188](https://github.com/user-attachments/assets/2f2deb47-721c-485d-92a7-5f2eb34cd81b)
 
 **PasswordBox** is a secure and easy-to-use password manager web application that allows users to safely store their login credentials for all their online accounts. It is built using ASP.NET Core MVC and Bootstrap.
 
@@ -85,7 +86,6 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for d
 
 For questions or feedback:
 
-* Email: [example@email.com](mailto:example@email.com)
-* GitHub: [github.com/yourusername](https://github.com/yourusername)
+* Email: [example@email.com](yusfuzn@hotmail.com)
 
 ---
