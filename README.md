@@ -1,11 +1,4 @@
----
-
-# PasswordBox
-![WhatsApp Image 2025-05-27 at 23 40 04_d5077188](https://github.com/user-attachments/assets/2f2deb47-721c-485d-92a7-5f2eb34cd81b)
-
-**PasswordBox** is a secure and easy-to-use password manager web application that allows users to safely store their login credentials for all their online accounts. It is built using ASP.NET Core MVC and Bootstrap.
-
----
+-
 
 ## Features
 
